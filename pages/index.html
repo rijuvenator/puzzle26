@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Page Title</title>
+		<link href=puzzle.css type="text/css" rel=stylesheet>
+	</head>
+	<body>
+		<div>
+			<img src="puzzle.png" width="580" height="580" usemap="#puzzlemap">
+			<map name="puzzlemap" id="main"></map>
+		</div>
+		<script>
+			var map = document.getElementById("main");
+			for (var x=0; x<5; x++)
+			{
+				for (var y=0; y<5; y++)
+				{
+					var link = "puzzles/".concat((5*x + y + 1).toString(), ".html");
+					var x1 = 120*y;
+					var y1 = 120*x;
+					var x2 = x1 + 100;
+					var y2 = y1 + 100;
+					var coords = "".concat(x1.toString(), ",", y1.toString(), ",", x2.toString(), ",", y2.toString());
+					var area = document.createElement("AREA");
+					area.setAttribute("shape" , "rect");
+					area.setAttribute("href"  , link);
+					area.setAttribute("coords", coords);
+					map.appendChild(area)
+				}
+			}
+		</script>
+	</body>
+</html> 
